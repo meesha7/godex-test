@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtclauowkq8le"]
+
+[sub_resource type="PipelineECS" id="PipelineECS_pitla"]
+pipeline_name = &"Main"
+system_bundles = PackedStringArray("Rendering 3D", "Bullet Physics All Features", "Physics")
+
+[sub_resource type="BoxMesh" id="BoxMesh_pr4md"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2ellj"]
+size = Vector3(4, 1, 4)
+
+[node name="WorldECS" type="WorldECS"]
+active_pipeline = &"Main"
+pipelines/Main = SubResource( "PipelineECS_pitla" )
+
+[node name="Entity3D" type="Entity3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3794, 0)
+TransformComponent = true
+TransformComponent/transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3794, 0)
+BtRigidBody = true
+BtBox = true
+MeshComponent = true
+MeshComponent/mesh = SubResource( "BoxMesh_pr4md" )
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.962071, -0.0717276, 0.263202, -2.47358e-09, 0.964815, 0.26293, -0.272801, -0.252957, 0.92822, 2.29186, 2.18912, 7.82099)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.759918, -0.330271, 0.559862, 0, 0.861301, 0.508095, -0.650019, -0.38611, 0.654519, 3.50816, 4.23637, 5.12779)
+
+[node name="Entity3D2" type="Entity3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.100183, 0, 0)
+TransformComponent = true
+TransformComponent/transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.100183, 0, 0)
+BtRigidBody = true
+BtRigidBody/body_mode = 3
+BtRigidBody/angular_factor = Vector3(0, 0, 0)
+BtBox = true
+MeshComponent = true
+MeshComponent/mesh = SubResource( "BoxMesh_2ellj" )
